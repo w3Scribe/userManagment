@@ -1,2 +1,3 @@
-const Hello = "Hello World!";
-console.log(Hello);
+import SayHello from "./src";
+
+SayHello();
