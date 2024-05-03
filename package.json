@@ -29,7 +29,6 @@
 	"author": "Sudhir Gadpayle <sudhirgadpayle535@gmail.com>",
 	"license": "MIT",
 	"devDependencies": {
-		"@biomejs/biome": "1.7.2",
 		"chokidar-cli": "^3.0.0",
 		"concurrently": "^8.2.2",
 		"ts-node-dev": "^2.0.0"
