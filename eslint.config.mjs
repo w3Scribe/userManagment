@@ -4,6 +4,7 @@ import tseslint from 'typescript-eslint'
 
 export default {
   languageOptions: { globals: globals.browser },
+
   extends: [
     pluginJs.configs.recommended,
     ...tseslint.configs.recommended,
@@ -15,6 +16,5 @@ export default {
 
   rules: {
     'prettier/prettier': 'error',
-
   },
 }
