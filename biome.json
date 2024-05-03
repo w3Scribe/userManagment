@@ -3,6 +3,7 @@
 	"organizeImports": {
 		"enabled": true
 	},
+
 	"linter": {
 		"enabled": true,
 		"ignore": ["**/node_modules/**", "**/dist/**"],
@@ -20,6 +21,7 @@
 	"files": {
 		"ignore": ["**/node_modules/**", "**/dist/**"]
 	},
+
 	"formatter": {
 		"enabled": true,
 		"formatWithErrors": false,

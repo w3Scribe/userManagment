@@ -5,7 +5,7 @@
 	"main": "server.ts",
 	"scripts": {
 		"dev": "conc 'npm:watch:*'",
-		"watch:server": "tsnd --cls --respawn  server.ts",
+		"watch:server": "tsnd --cls --respawn server.ts",
 		"biome:check": "npx @biomejs/biome check --apply \"server.ts\" ",
 		"watch:format": "chokidar server.ts -c \"npm run biome:check\""
 	},
