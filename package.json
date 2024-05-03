@@ -1,0 +1,28 @@
+{
+  "name": "usermanagment",
+  "version": "1.0.0",
+  "description": "This is is the simple user managment with CURD operation using some core technologies that will help me to boost my futurecondig journey.",
+  "main": "server.ts",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "node",
+    "typescript",
+    "express",
+    "mongodb",
+    "mongoose",
+    "zode",
+    "ejs",
+    "html",
+    "tailwindcss",
+    "css",
+    "js",
+    "eslint",
+    "airbnb",
+    "prettier",
+    "user-managment"
+  ],
+  "author": "Sudhir Gadpayle <sudhirgadpayle535@gmail.com>",
+  "license": "MIT"
+}
