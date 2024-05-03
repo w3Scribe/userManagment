@@ -13,7 +13,7 @@
     "declaration": true,
     "declarationDir": "/build/types",
     "allowUnusedLabels":false,
-    "esModuleInterop": true,
+    "esModuleInterop": false,
     "moduleResolution": "NodeNext",
     "forceConsistentCasingInFileNames": true,
     "allowSyntheticDefaultImports": true
