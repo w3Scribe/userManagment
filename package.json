@@ -4,7 +4,10 @@
   "description": "This is is the simple user managment with CURD operation using some core technologies that will help me to boost my futurecondig journey.",
   "main": "server.ts",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev" : "conc 'npm:watch:*'",
+    "watch:server": "tsnd --cls --respawn --transpile-only server.ts",
+    "biome:check": "npx @biomejs/biome check --apply \"server.ts\" ",
+    "watch:biome": "chokidar server.ts -c \"npm run biome:check\""
   },
   "keywords": [
     "node",

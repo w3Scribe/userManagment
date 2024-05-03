@@ -5,11 +5,23 @@
 	},
 	"linter": {
 		"enabled": true,
-		"rules": {
-			"recommended": true
+		"ignore": ["**/node_modules/**", "**/dist/**"],
+			"rules": {
+				"style": {
+					"noShoutyConstants": "warn",
+					"useNamingConvention": "error",
+					"noVar": "warn",
+					"useTemplate" :"warn",
+					"useFilenamingConvention": "error"
+				}
 		}
 	},
 	"files": {
 		"ignore": ["**/node_modules/**", "**/dist/**"]
+	},
+	"formatter": {
+		"enabled": true,
+		"formatWithErrors": false,
+		"lineWidth": 80
 	}
 }
