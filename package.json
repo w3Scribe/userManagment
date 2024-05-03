@@ -26,6 +26,7 @@
   "author": "Sudhir Gadpayle <sudhirgadpayle535@gmail.com>",
   "license": "MIT",
   "devDependencies": {
+    "eslint-config-prettier": "^9.1.0",
     "prettier": "^3.2.5",
     "ts-node-dev": "^2.0.0"
   }
