@@ -1,36 +1,33 @@
 {
-	"name": "usermanagment",
-	"version": "1.0.0",
-	"description": "This is is the simple user managment with CURD operation using some core technologies that will help me to boost my futurecondig journey.",
-	"main": "server.ts",
-	"scripts": {
-		"dev": "conc 'npm:watch:*'",
-		"watch:server": "tsnd --cls --respawn server.ts",
-		"biome:check": "npx @biomejs/biome check --apply .",
-		"watch:format": "chokidar \"src/**/*.ts\" \"server.ts\" -c  \"npm run biome:check\""
-	},
-	"keywords": [
-		"node",
-		"typescript",
-		"express",
-		"mongodb",
-		"mongoose",
-		"zode",
-		"ejs",
-		"html",
-		"tailwindcss",
-		"css",
-		"js",
-		"eslint",
-		"airbnb",
-		"prettier",
-		"user-managment"
-	],
-	"author": "Sudhir Gadpayle <sudhirgadpayle535@gmail.com>",
-	"license": "MIT",
-	"devDependencies": {
-		"chokidar-cli": "^3.0.0",
-		"concurrently": "^8.2.2",
-		"ts-node-dev": "^2.0.0"
-	}
+  "name": "usermanagment",
+  "version": "1.0.0",
+  "description": "This is is the simple user managment with CURD operation using some core technologies that will help me to boost my futurecondig journey.",
+  "main": "server.ts",
+  "scripts": {
+    "lint": ""
+  },
+  "keywords": [
+    "node",
+    "typescript",
+    "express",
+    "mongodb",
+    "mongoose",
+    "zode",
+    "ejs",
+    "html",
+    "tailwindcss",
+    "css",
+    "js",
+    "eslint",
+    "airbnb",
+    "prettier",
+    "user-managment"
+  ],
+  "author": "Sudhir Gadpayle <sudhirgadpayle535@gmail.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "chokidar-cli": "^3.0.0",
+    "concurrently": "^8.2.2",
+    "ts-node-dev": "^2.0.0"
+  }
 }

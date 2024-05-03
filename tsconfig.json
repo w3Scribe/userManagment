@@ -1,17 +1,23 @@
 {
-	"compilerOptions": {
-		"target": "ESNext",
-		"module": "NodeNext",
-		"esModuleInterop": true,
-		"moduleResolution": "NodeNext",
-		"removeComments": false,
-		"strict": true,
-		"noEmitOnError": true,
-		"noImplicitAny": true,
-		"noUnusedLocals": true,
-		"rootDir": ".",
-		"outDir": "dist"
-	},
-	"include": ["src/**/*.ts", "."],
-	"exclude": ["node_modules/**/*.ts"]
+  "compilerOptions": {
+    "strict": true,
+    "target": "ES2022",
+    "module": "NodeNext",
+    "sourceMap": false,
+    "noUnusedLocals": true,
+    "removeComments": true,
+    "noEmitOnError": true,
+    "outDir": "dist",
+    "lib": ["ES2022"],
+    "pretty": true,
+    "declaration": true,
+    "declarationDir": "/build/types",
+    "allowUnusedLabels":false,
+    "esModuleInterop": true,
+    "moduleResolution": "NodeNext",
+    "forceConsistentCasingInFileNames": true,
+    "allowSyntheticDefaultImports": true
+  },
+  "include": ["src/**/*.ts", "./*.ts"],
+  "exclude": ["node_modules/**/*.ts"]
 }
