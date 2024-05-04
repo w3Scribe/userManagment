@@ -11,34 +11,44 @@
 		"enabled": true,
 		"rules": {
 			"recommended": true,
-      "security": {
-        "recommended": true
-      },
+			"security": {
+				"recommended": true
+			},
 			"complexity": {
 				"noForEach": "warn",
 				"useFlatMap": "warn",
 				"noExtraBooleanCast": "warn",
 				"noUselessCatch": "warn",
 				"noUselessLoneBlockStatements": "warn",
-        "noUselessTernary": "warn",
-        "useArrowFunction" :"warn",
-        "useOptionalChain" :"warn"
+				"noUselessTernary": "warn",
+				"useArrowFunction": "warn",
+				"useOptionalChain": "warn"
 			},
-      "suspicious" : {
-        "noConsoleLog":"off",
-        "noDebugger":"off"
-      },
-      "correctness": {
-        "noUnusedImports": "warn",
-        "noUnusedVariables":"warn",
-        "noConstAssign":"warn"
-        
-      },
+			"suspicious": {
+				"noConsoleLog": "off",
+				"noDebugger": "off"
+			},
+			"correctness": {
+				"noUnusedImports": "warn",
+				"noUnusedVariables": "warn",
+				"noConstAssign": "warn"
+			},
 			"style": {
 				"noVar": "warn",
 				"useConst": "warn",
-				"useFilenamingConvention": "warn",
-				"useNamingConvention": "warn",
+				"useFilenamingConvention": {
+					"level": "error",
+					"options": {
+						"filenameCases": ["camelCase", "PascalCase"]
+					}
+				},
+				"useNamingConvention": {
+					"level": "warn",
+					"options": {
+						"strictCase": true,
+						"enumMemberCase": "camelCase"
+					}
+				},
 				"useTemplate": "warn"
 			}
 		}
@@ -47,5 +57,4 @@
 		"enabled": true,
 		"formatWithErrors": false
 	}
-  
 }
