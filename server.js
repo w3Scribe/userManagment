@@ -1,9 +1,10 @@
-import app from "./src/app.js";
-import config from "./src/config/index.js";
+import app from './src/app.js'
+import config from './src/config/index.js'
 
 // environment PORT
-const PORT = config.port;
+const PORT = config.port
 
 app.listen(PORT, () => {
-	console.log(`Server is running on port ${PORT}`);
-});
+	console.clear()
+	console.log(`Server is started at http://localhost:${PORT}`)
+})

@@ -39,18 +39,30 @@
 				"useFilenamingConvention": {
 					"level": "error",
 					"options": {
-						"filenameCases": ["camelCase", "PascalCase"]
+						"strictCase": true,
+						"requireAscii": true,
+						"filenameCases": ["camelCase", "export"]
 					}
 				},
 				"useNamingConvention": {
-					"level": "warn",
+					"level": "error",
 					"options": {
 						"strictCase": true,
+						"requireAscii": true,
 						"enumMemberCase": "camelCase"
 					}
 				},
 				"useTemplate": "warn"
 			}
+		}
+	},
+	"javascript": {
+		"formatter": {
+			"enabled": true,
+			"arrowParentheses": "asNeeded",
+			"trailingComma": "none",
+			"semicolons": "asNeeded",
+			"quoteStyle": "single"
 		}
 	},
 	"formatter": {
