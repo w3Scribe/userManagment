@@ -1,3 +1,9 @@
+/**
+ * @router api/user
+ * @requires express Router
+ * @description This is the user router module that handles all the user routes
+ */
+
 import { Router } from 'express'
 import createHttpError from 'http-errors'
 
@@ -9,11 +15,9 @@ const userData = [
 	{ id: 3, name: 'sagar', lastname: 'gadpayle' }
 ]
 
-
 userRouter.get('/', (_req, res, _next) => {
 	res.status(202).json(userData)
 })
-
 
 userRouter.get('/:name', (req, res, next) => {
 	const { name } = req.params
@@ -25,7 +29,5 @@ userRouter.get('/:name', (req, res, next) => {
 	if (user) return res.status(200).json(user)
 	next(createHttpError(404, 'user not found.'))
 })
-
-
 
 export default userRouter

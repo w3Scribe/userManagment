@@ -6,7 +6,7 @@
  * @returns {void}
  * @description error handler middleware function to handle errors
  */
-  
+
 import config from '../config/index.js'
 
 function errorHandler(err, _req, res, _next) {
