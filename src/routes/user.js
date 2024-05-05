@@ -1,6 +1,7 @@
 /**
  * @router api/user
  * @requires express Router
+ * @requires createHttpError to create http errors
  * @description This is the user router module that handles all the user routes
  */
 
