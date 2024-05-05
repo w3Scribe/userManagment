@@ -36,9 +36,8 @@ userRouter.get('/:name', (req, res, next) => {
 userRouter.put('/:id', reqValidator(UserSchema), (req, res, next) => {
 	const IdParam = parseInt(req.params.id)
 
-	if (Number.isNaN(IdParam) && !IdParam === req.body.id) {
-		return next(createHttpError(400, 'Invalid id.'))
-	}
+	if (IdParam !== req.body.id)
+		return next(createHttpError(400, 'User ID does not match.'))
 
 	const newUpdatedUserData = {
 		id: IdParam,
