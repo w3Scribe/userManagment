@@ -7,6 +7,8 @@
 
 import { Router } from 'express'
 import createHttpError from 'http-errors'
+import UserSchema from '../schemas/User.js'
+import reqValidator from '../middlewares/reqValidator.js'
 
 const userRouter = Router()
 
@@ -29,6 +31,21 @@ userRouter.get('/:name', (req, res, next) => {
 
 	if (user) return res.status(200).json(user)
 	next(createHttpError(404, 'user not found.'))
+})
+
+userRouter.put('/:id', reqValidator(UserSchema), (req, res, next) => {
+	const IdParam = parseInt(req.params.id)
+
+	if (Number.isNaN(IdParam) && !IdParam === req.body.id) {
+		return next(createHttpError(400, 'Invalid id.'))
+	}
+
+	const newUpdatedUserData = {
+		id: IdParam,
+		...req.body
+	}
+
+	res.status(200).json(newUpdatedUserData)
 })
 
 export default userRouter

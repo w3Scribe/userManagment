@@ -1,8 +1,13 @@
 {
 	"$schema": "https://biomejs.dev/schemas/1.7.2/schema.json",
 	"files": {
-		"ignore": ["node_modules"],
-		"include": ["src/**/*.js", "server.js"]
+		"ignore": [
+			"node_modules"
+		],
+		"include": [
+			"src/**/*.js",
+			"server.js"
+		]
 	},
 	"organizeImports": {
 		"enabled": true
@@ -41,7 +46,10 @@
 					"options": {
 						"strictCase": true,
 						"requireAscii": true,
-						"filenameCases": ["camelCase", "export"]
+						"filenameCases": [
+							"camelCase",
+							"export"
+						]
 					}
 				},
 				"useNamingConvention": {
@@ -52,7 +60,10 @@
 						"enumMemberCase": "camelCase"
 					}
 				},
-				"useTemplate": "warn"
+				"useTemplate": "warn",
+				"useNumberNamespace": {
+					"level" : "off"
+				}
 			}
 		}
 	},
