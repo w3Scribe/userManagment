@@ -1,4 +1,5 @@
 import express from 'express'
+import cookieParser from 'cookie-parser'
 
 /**
  * @param {express.Application} app
@@ -9,4 +10,5 @@ import express from 'express'
 export default function bodyParser(app) {
 	app.use(express.urlencoded({ extended: true }))
 	app.use(express.json())
+	app.use(cookieParser())
 }

@@ -8,15 +8,16 @@
  */
 
 import express from 'express'
-import bodyParser from './middlewares/bodyParser.js'
+import Parse from './middlewares/parsers.js'
 import errorHandler from './middlewares/errorHandler.js'
 import userRouter from './routes/user.js'
+
 
 // express app
 const app = express()
 
-// body parser middleware
-bodyParser(app)
+//parser middleware
+Parse(app)
 
 // routes
 app.use('/api/users', userRouter)
