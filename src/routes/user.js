@@ -10,6 +10,10 @@ import createHttpError from 'http-errors'
 import UserSchema from '../schemas/User.js'
 import reqValidator from '../middlewares/reqValidator.js'
 
+
+
+
+
 const userRouter = Router()
 
 const userData = [
@@ -37,7 +41,7 @@ userRouter.put('/:id', reqValidator(UserSchema), (req, res, next) => {
 	const IdParam = parseInt(req.params.id)
 
 	if (IdParam !== req.body.id)
-		return next(createHttpError(400, 'User ID does not match.'))
+		return next(createHttpError(406, 'User ID does not match.'))
 
 	const newUpdatedUserData = {
 		id: IdParam,

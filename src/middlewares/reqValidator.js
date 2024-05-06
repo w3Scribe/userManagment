@@ -10,7 +10,8 @@ function reqValidator(schema) {
 			await schema.parseAsync(req.body)
 			next()
 		} catch (error) {
-			res.status(400).json({ message: error.errors[0].message })
+			const { message, code, expected } = error.errors[0]
+			res.status(404).json({ message, code, expected })
 		}
 	}
 }
