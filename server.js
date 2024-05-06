@@ -2,7 +2,7 @@ import app from './src/app.js'
 import config from './src/config/index.js'
 
 // environment PORTS
-const PORTS = Array.isArray(config.PORT) || config.PORT
+const PORTS = Array.isArray(config.PORT) ? config.PORT : [config.PORT]
 
 let server
 
@@ -20,6 +20,8 @@ for (const port of PORTS) {
 }
 
 if (!server.listening) {
-	console.error('Failed to start server on any port')
+	console.error(
+		`Failed to start server on any of the following ports: ${PORTS.join(', ')}`
+	)
 	process.exit(1)
 }
