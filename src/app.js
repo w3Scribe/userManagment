@@ -12,7 +12,6 @@ import Parse from './middlewares/parsers.js'
 import errorHandler from './middlewares/errorHandler.js'
 import userRouter from './routes/user.js'
 
-
 // express app
 const app = express()
 
