@@ -1,13 +1,10 @@
-/**
- * @param {Error} err
- * @param {express.Request} req
- * @param {express.Response} res
- * @param {express.NextFunction} next
- * @returns {void}
- * @description error handler middleware function to handle errors
- */
-
 import config from '../config/index.js'
+
+/**
+ * This is Error handler middleware function to handle errors in the application
+ * @param {Error} err  
+ * @param {express.Response} res  
+ */
 
 function errorHandler(err, _req, res, _next) {
 	const erroStatusCode = err.statusCode

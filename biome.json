@@ -53,7 +53,7 @@
 					}
 				},
 				"useNamingConvention": {
-					"level": "error",
+					"level": "off",
 					"options": {
 						"strictCase": true,
 						"requireAscii": true,

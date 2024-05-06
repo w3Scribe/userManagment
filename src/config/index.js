@@ -1,8 +1,14 @@
-import dotenv from 'dotenv'
-dotenv.config()
+import { config } from 'dotenv'
+
+const { error, parsed: variables } = config()
+
+if (error) {
+	console.error(error.message)
+	process.exit(1)
+}
 
 export default Object.freeze({
-	port: process.env.PORT || 5000,
-	env: process.env.NODE_ENV || 'development',
-	dbUri: process.env.MONGODB_URI
+	PORT: variables.PORT?.split(',').map(Number),
+	NODE_ENV: variables.NODE_ENV ?? 'development',
+	MONGODB_URI: variables.MONGODB_URI
 })

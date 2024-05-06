@@ -2,11 +2,10 @@ import express from 'express'
 import cookieParser from 'cookie-parser'
 
 /**
+ * This middleware is used to parse the incoming request body and cookies
  * @param {express.Application} app
- * @returns {void}
- * @module express 
- * @module cookieParser to parse the cookies
- * @description This middleware is used to parse the incoming request body and cookies
+ * @requires express
+ * @requires cookieParser to parse the cookies
  */
 
 export default function bodyParser(app) {
