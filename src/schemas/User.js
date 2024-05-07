@@ -2,8 +2,10 @@ import { z } from 'zod'
 
 const UserSchema = z.object({
 	id: z
-		// biome-ignore lint/style/useNamingConvention: <explanation>
-		.number({ message: 'User Id Is Required', invalid_type_error : "Invalid errr type"})
+		.number({
+			message: 'User Id Is Required',
+			invalid_type_error: 'Invalid errr type'
+		})
 		.int()
 		.positive({ message: 'User ID Must Be Positive Integer.' }),
 

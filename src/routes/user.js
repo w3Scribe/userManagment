@@ -11,9 +11,6 @@ import UserSchema from '../schemas/User.js'
 import reqValidator from '../middlewares/reqValidator.js'
 
 
-
-
-
 const userRouter = Router()
 
 const userData = [
