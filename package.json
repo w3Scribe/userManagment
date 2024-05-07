@@ -16,6 +16,7 @@
   "description": "",
   "devDependencies": {
     "@biomejs/biome": "^1.7.2",
+    "chalk": "^5.3.0",
     "nodemon": "^3.1.0"
   },
   "dependencies": {
