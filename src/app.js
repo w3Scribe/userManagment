@@ -3,14 +3,17 @@ import Parse from './middlewares/parsers.js'
 import errorHandler from './middlewares/errorHandler.js'
 import userRouter from './routes/user.js'
 import logger from './middlewares/logger.js'
+import viewEngine from './config/viewEngine.js'
 
 /**
  * This is the main app module that creates the express app and sets up the middlewares and routes
  * @module app
- * @requires express
+ * @requires express 
  * @requires Parse
  * @requires errorHandler
  * @requires userRouter
+ * @requires logger
+ * @requires viewEngine
  */
 
 // express app
@@ -26,10 +29,7 @@ Parse(app)
 app.use('/api/users', userRouter)
 
 // view engine setup
-app.set('view engine', 'ejs')
-app.use(express.static('public'))
-app.set('views', './views/pages')
-
+viewEngine(app)
 
 // global error handler Middleware
 app.use(errorHandler)

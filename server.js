@@ -8,7 +8,7 @@
  */
 
 import app from './src/app.js'
-import config from './src/config/index.js'
+import config from './src/config/variables.js'
 import chalk from 'chalk'
 
 // environment PORTS

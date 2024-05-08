@@ -1,4 +1,4 @@
-import config from '../config/index.js'
+import config from '../config/variables.js'
 
 /**
  * This is Error handler middleware function to handle errors in the application
