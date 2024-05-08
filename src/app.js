@@ -25,6 +25,12 @@ Parse(app)
 // routes
 app.use('/api/users', userRouter)
 
+// view engine setup
+app.set('view engine', 'ejs')
+app.use(express.static('public'))
+app.set('views', './views/pages')
+
+
 // global error handler Middleware
 app.use(errorHandler)
 
