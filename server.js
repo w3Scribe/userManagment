@@ -16,7 +16,6 @@ const PORT = config.PORT
 
 // start server
 app.listen(PORT, () => {  
-	console.clear()
 	console.log(
 		chalk.green(`Server is running on port http://localhost:${PORT}`)
 	)

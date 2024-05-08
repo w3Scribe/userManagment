@@ -13,10 +13,7 @@ function logger(req, _res, next) {
 	const isTrue =
 		req.path.endsWith('styles.css') || req.path.endsWith('favicon.ico')
 
-	if (!isTrue) {
-		console.clear()
-		console.log(chalk.yellow(`${req.method} ~ ${req.path}`))
-	}
+	if (!isTrue) console.log(chalk.yellow(`${req.method} ~ ${req.path}`))
 	next()
 }
 
