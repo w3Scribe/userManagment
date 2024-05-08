@@ -10,8 +10,13 @@
 import chalk from 'chalk'
 
 function logger(req, _res, next) {
-	console.clear()
-	console.log(chalk.yellow(`${req.method} ~ ${req.path}`))
+	const isTrue =
+		req.path.endsWith('styles.css') || req.path.endsWith('favicon.ico')
+
+	if (!isTrue) {
+		console.clear()
+		console.log(chalk.yellow(`${req.method} ~ ${req.path}`))
+	}
 	next()
 }
 
