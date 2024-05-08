@@ -7,13 +7,13 @@ import viewEngine from './config/viewEngine.js'
 
 /**
  * This is the main app module that creates the express app and sets up the middlewares and routes
- * @module app
- * @requires express 
- * @requires Parse
- * @requires errorHandler
- * @requires userRouter
- * @requires logger
- * @requires viewEngine
+ * @file     app
+ * @requires express    to create the express app
+ * @requires Parse      to set up the parser middlewares
+ * @requires errorHandler to handle errors
+ * @requires userRouter to handle user routes
+ * @requires logger   to log requests
+ * @requires viewEngine to set up the view engine
  */
 
 // express app
@@ -25,11 +25,11 @@ app.use(logger)
 //parser middleware
 Parse(app)
 
-// routes
-app.use('/api/users', userRouter)
-
 // view engine setup
 viewEngine(app)
+
+// routes
+app.use('/api/users', userRouter)
 
 // global error handler Middleware
 app.use(errorHandler)
