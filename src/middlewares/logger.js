@@ -14,6 +14,7 @@ function logger(req, _res, next) {
 		req.path.endsWith('styles.css') || req.path.endsWith('favicon.ico')
 
 	if (!isTrue) console.log(chalk.yellow(`${req.method} ~ ${req.path}`))
+
 	next()
 }
 

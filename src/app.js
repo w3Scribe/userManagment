@@ -13,9 +13,9 @@ import viewEngine from './config/viewEngine.js'
  * @requires errorHandler to handle errors
  * @requires userRouter to handle user routes
  * @requires logger   to log requests
- * @requires viewEngine to set up the view engine
+ * @requires viewEngine to set up the view engine        
  */
-
+    
 // express app
 const app = express()
 
