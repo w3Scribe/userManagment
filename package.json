@@ -5,9 +5,9 @@
   "type": "module",
   "scripts": {
     "start": "node --env-file=.env server.js",
-    "dev": "conc 'npm:watch:*'",
-    "watch:server": "cls && node --watch --watch-path=src --env-file=.env server.js",
-    "watch:css": "cls && postcss public/css/tailwind.css -o public/css/styles.css --watch",
+    "dev": "conc 'npm:watch:*' && cls",
+    "watch:server": " node --watch --watch-path=src --env-file=.env server.js",
+    "watch:css": "postcss public/css/tailwind.css -o public/css/styles.css --watch",
     "check": "npx @biomejs/biome check --apply \"server.js\" \"src\""
   },
   "keywords": [],
