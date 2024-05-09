@@ -17,8 +17,9 @@ userRouter.get('/', (_req, res) => {
 
 userRouter.post('/', (req, res) => {
 	const { userName } = req.cookies
+    console.log(req.headers)
 	if (userName) return res.status(200).json({ msg: `Hello ${userName}` })
-	res.status(400).json({ msg: 'No cookie found' })
+	res.status(404).json({ msg: 'No cookie found' })
 })
 
 export default userRouter  
