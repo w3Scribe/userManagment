@@ -21,4 +21,4 @@ userRouter.post('/', (req, res) => {
 	res.status(400).json({ msg: 'No cookie found' })
 })
 
-export default userRouter
+export default userRouter  
