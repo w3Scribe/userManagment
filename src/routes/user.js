@@ -6,13 +6,19 @@
  */
 
 import { Router } from 'express'
-// import createHttpError from 'http-errors'
-// import UserSchema from '../schemas/User.js'
-// import reqValidator from '../middlewares/reqValidator.js'
 
 const userRouter = Router()
 
 userRouter.get('/', (_req, res) => {
-    res.render('index', { title: 'User Page' })
+	res.status(202)
+		.cookie('userName', 'sudhir gadpayle', { maxAge: 1_000 * 10 })
+		.json({ msg: 'cookie set Successfully.' })
 })
+
+userRouter.post('/', (req, res) => {
+	const { userName } = req.cookies
+	if (userName) return res.status(200).json({ msg: `Hello ${userName}` })
+	res.status(400).json({ msg: 'No cookie found' })
+})
+
 export default userRouter
