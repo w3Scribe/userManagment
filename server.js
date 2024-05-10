@@ -11,44 +11,33 @@ import browserSync from 'browser-sync'
 import app from './src/app.js'
 import config from './src/config/variables.js'
 import chalk from 'chalk'
-import { execSync } from 'node:child_process'
-import { join } from 'node:path'
+import { dirname, join } from 'node:path'
 
 const __filename = import.meta.url
-console.log(__filename)
+const __dirname = dirname(__filename)
 
 // environment PORTS
 const PORT = config.PORT
 
-browserSync({		
-	browser: 'default',
-	port: process.env.PORT,
-	listen: CURRENT_RUNNING_URL,
-	files: join(__dirname, 'public', 'css', 'styles.css')
-})
-
 // start server
 function server(PORT) {
-	const CURRENT_RUNNING_URL = `http://localhost:${PORT}`
-
 	app.listen(PORT, () => {
-		console.log(
-			chalk.green(`Server is running on PORT ${CURRENT_RUNNING_URL}`)
-		)
+		console.log(chalk.green(`The server is started http://localhost:${PORT}`))
 	})
 
 	app.on('error', err => {
 		console.log(chalk.red(`Error: ${err}`))
 	})
 
-	try {
-		execSync(
-			`browser-sync start --proxy ${CURRENT_RUNNING_URL} --files "cs/*.csss"`
-		)
-	} catch (error) {
-		console.error('Failed to start browser-sync:', error)
-	}
-
+	browserSync({
+		browser: 'default',
+		open: 'local',
+		host: 'localhost',
+		port: process.env.PORT,
+		files: join(__dirname, 'public', 'css', 'styles.css')
+	}).init(() => {
+		console.log(chalk.green('Browser-sync is running!'))
+	})
 }
 
 server(PORT)
