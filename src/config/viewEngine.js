@@ -16,6 +16,7 @@ const __filename = fileURLToPath(import.meta.url)
 const __dirname = dirname(__filename)
 
 export default function (app) {
+	app.set('view cache', true)
 	app.use(express.static('public'))
 	app.set('view engine', 'ejs')
 	app.use(expressEjsLayouts)

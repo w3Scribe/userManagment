@@ -20,19 +20,30 @@ const __dirname = dirname(__filename)
 const PORT = config.PORT
 
 // start server
-function server(PORT) {
-	app.listen(PORT, () => {
+const isSeverStareded = app.listen(PORT)
+
+// Initialize BrowserSync
+browserSync.init({
+	files: [
+		'./**/*',
+		'public/**/*.*',
+		'src/views/pages/**/*.*',
+		'src/views/layouts/**/*.*',
+		'src/controllers/**/*.*'
+	],
+	proxy: `http://localhost:${PORT}`,
+	// port: 3000,
+	open: false,
+	ui: false,
+	// serveStatic: ['public'],
+	reloadDelay: 100,
+	reloadOnRestart: true,
+	logLevel: 'silent' // suppress all BrowserSync logs
+})
+
+browserSync.emitter.on('service:running', () => {
+	if (isSeverStareded.listening) {
 		console.log(chalk.green(`The server is started http://localhost:${PORT}`))
-	})
+	}
+})
 
-	// Initialize BrowserSync
-	browserSync.init({
-		proxy: `http://localhost:${PORT}`, // this is the address of your app
-		files: ['public/**/*.*', 'views/**/*.*'], // watch these files for changes
-		port: 3000, // this is the port where BrowserSync will be running
-		open: false, // don't automatically open a browser window
-		ui : false, // don't open the BrowserSync control panel
-	})
-}
-
-server(PORT)
