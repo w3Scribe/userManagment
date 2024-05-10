@@ -11,7 +11,7 @@ import browserSync from 'browser-sync'
 import app from './src/app.js'
 import config from './src/config/variables.js'
 import chalk from 'chalk'
-import { dirname, join } from 'node:path'
+import { dirname } from 'node:path'
 
 const __filename = import.meta.url
 const __dirname = dirname(__filename)
@@ -25,18 +25,13 @@ function server(PORT) {
 		console.log(chalk.green(`The server is started http://localhost:${PORT}`))
 	})
 
-	app.on('error', err => {
-		console.log(chalk.red(`Error: ${err}`))
-	})
-
-	browserSync({
-		browser: 'default',
-		open: 'local',
-		host: 'localhost',
-		port: process.env.PORT,
-		files: join(__dirname, 'public', 'css', 'styles.css')
-	}).init(() => {
-		console.log(chalk.green('Browser-sync is running!'))
+	// Initialize BrowserSync
+	browserSync.init({
+		proxy: `http://localhost:${PORT}`, // this is the address of your app
+		files: ['public/**/*.*', 'views/**/*.*'], // watch these files for changes
+		port: 3000, // this is the port where BrowserSync will be running
+		open: false, // don't automatically open a browser window
+		ui : false, // don't open the BrowserSync control panel
 	})
 }
 
