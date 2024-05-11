@@ -38,7 +38,7 @@ function logger(req, res, next) {
 		}
 
 		if (isTrue && statusCode === 404) {
-			console.log(chalk.red(`404 Not Found ${originalUrl}`))
+			console.log(chalk.red(`${method} ${originalUrl}`))
 		}
 	})
 

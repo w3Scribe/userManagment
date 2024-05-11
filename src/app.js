@@ -31,8 +31,8 @@ viewEngine(app)
 app.use(logger)
 
 // routes
-app.use(notFoundRouter)
 app.use('/api/users', userRouter)
+app.use(notFoundRouter)
 
 // global error handler Middleware
 app.use(notFoundHandler)
