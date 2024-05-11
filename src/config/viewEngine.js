@@ -11,12 +11,13 @@ import { fileURLToPath } from 'node:url'
 import { dirname, join } from 'node:path'
 import express from 'express'
 import expressEjsLayouts from 'express-ejs-layouts'
+import variables from './variables'
 
 const __filename = fileURLToPath(import.meta.url)
 const __dirname = dirname(__filename)
 
 export default function (app) {
-	app.set('view cache', true)
+	app.set('view cache', variables.NODE_ENV === 'production')
 	app.use(express.static('public'))
 	app.set('view engine', 'ejs')
 	app.use(expressEjsLayouts)

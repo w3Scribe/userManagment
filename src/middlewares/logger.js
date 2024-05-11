@@ -30,6 +30,10 @@ function logger(req, res, next) {
 		const duration = Date.now() - startTime
 		const { statusCode } = res
 
+		if (isTrue && statusCode === 404) {
+			console.log(chalk.red(`${method} ${originalUrl}`))
+		}
+
 		if (isTrue && statusCode !== 404) {
 			console.log(
 				chalk[color](`${method}`) +
@@ -37,9 +41,6 @@ function logger(req, res, next) {
 			)
 		}
 
-		if (isTrue && statusCode === 404) {
-			console.log(chalk.red(`${method} ${originalUrl}`))
-		}
 	})
 
 	return next()
