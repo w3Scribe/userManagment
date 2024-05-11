@@ -13,6 +13,22 @@ userRouter.get('/', (_req, res) => {
    res.status(200).render('index', { title: 'User'})
 })
 
+userRouter.post('/', (_req, res) => {
+   res.status(200).render('index', { title: 'User'})
+})
+
+userRouter.put('/', (_req, res) => {
+   res.status(200).render('index', { title: 'User'})
+})
+
+userRouter.patch('/', (_req, res) => {
+   res.status(200).render('index', { title: 'User'})
+})
+
+userRouter.delete('/', (_req, res) => {
+   res.status(200).render('index', { title: 'User'})
+})
+
 
 
 export default userRouter  

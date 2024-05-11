@@ -9,14 +9,31 @@
 
 import chalk from 'chalk'
 
-function logger(req, _res, next) {
-	// This condition is used to avoid logging the request for the css file according to my project files structure
-	const isTrue =
+function logger(req, res, next) {
+	const startTime = Date.now()
+	const isTrue = !(
 		req.path.endsWith('styles.css') || req.path.endsWith('favicon.ico')
+	)
 
-	if (!isTrue) console.log(chalk.yellow(`${req.method} ~ ${req.path}`))
+	const methodColors = {
+		GET: 'green',
+		POST: 'magenta',
+		PUT: 'blue',
+		PATCH: 'yellow',
+		DELETE: 'red'
+	}
 
-	next()
+	if (isTrue)
+		res.on('finish', () => {
+			const duration = Date.now() - startTime
+
+			console.log(
+				chalk[methodColors[req.method]](`${req.method}`) +
+					chalk.dim(` ${req.path}  ${duration}ms`)
+			)
+		})
+
+	return next()
 }
 
 export default logger
