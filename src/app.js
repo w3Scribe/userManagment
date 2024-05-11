@@ -21,18 +21,18 @@ import notFoundRouter from './routes/notFound.js'
 // express app
 const app = express()
 
-// logger middleware
-app.use(logger)
-
 //parser middleware
 Parse(app)
 
 // view engine setup
 viewEngine(app)
 
+// logger middleware
+app.use(logger)
+
 // routes
-app.use('/api/users', userRouter)
 app.use(notFoundRouter)
+app.use('/api/users', userRouter)
 
 // global error handler Middleware
 app.use(notFoundHandler)

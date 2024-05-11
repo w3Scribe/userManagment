@@ -6,7 +6,6 @@
  * @param {Express.Response} res
  * @param {Express.NextFunction} next
  */
-
 import chalk from 'chalk'
 
 function logger(req, res, next) {
@@ -24,18 +23,24 @@ function logger(req, res, next) {
 	const color = colors[method]
 
 	const isTrue = !(
-		req.path.endsWith('styles.css') || req.path.endsWith('favicon.ico')
+		originalUrl.endsWith('styles.css') || originalUrl.endsWith('favicon.ico')
 	)
 
-	if (isTrue)
-		res.on('finish', () => {
-			const duration = Date.now() - startTime
+	res.on('finish', () => {
+		const duration = Date.now() - startTime
+		const { statusCode } = res
 
+		if (isTrue && statusCode !== 404) {
 			console.log(
 				chalk[color](`${method}`) +
 					chalk.dim(` ${originalUrl}  ${duration}ms`)
 			)
-		})
+		}
+
+		if (isTrue && statusCode === 404) {
+			console.log(chalk.red(`404 Not Found ${originalUrl}`))
+		}
+	})
 
 	return next()
 }
