@@ -11,11 +11,8 @@ import chalk from 'chalk'
 
 function logger(req, res, next) {
 	const startTime = Date.now()
-	const isTrue = !(
-		req.path.endsWith('styles.css') || req.path.endsWith('favicon.ico')
-	)
 
-	const methodColors = {
+	const colors = {
 		GET: 'green',
 		POST: 'magenta',
 		PUT: 'blue',
@@ -23,13 +20,20 @@ function logger(req, res, next) {
 		DELETE: 'red'
 	}
 
+	const { method, originalUrl } = req
+	const color = colors[method]
+
+	const isTrue = !(
+		req.path.endsWith('styles.css') || req.path.endsWith('favicon.ico')
+	)
+
 	if (isTrue)
 		res.on('finish', () => {
 			const duration = Date.now() - startTime
 
 			console.log(
-				chalk[methodColors[req.method]](`${req.method}`) +
-					chalk.dim(` ${req.path}  ${duration}ms`)
+				chalk[color](`${method}`) +
+					chalk.dim(` ${originalUrl}  ${duration}ms`)
 			)
 		})
 
