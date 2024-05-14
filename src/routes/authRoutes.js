@@ -7,7 +7,7 @@ const authRouter = Router();
 
 
 authRouter.get('/signup', (_req, res, _next) => {
-  res.render('signup', { title: 'Sign Up' });
+  res.render('sing-up', { title: 'Sign Up' });
 })
 
 authRouter.get("/login", (_req, res, _next) => {
