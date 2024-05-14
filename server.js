@@ -10,12 +10,14 @@
 import app from './src/app.js'
 import config from './src/config/variables.js'
 import chalk from 'chalk'
+import connect from './src/config/database.js'
 
 // environment PORTS
 const PORT = config.PORT
 
 // start server
-app.listen(PORT, () => {
+app.listen(PORT, async () => {
+	await connect();
 	console.log(chalk.green(`The server is started http://localhost:${PORT}`))
 })
 

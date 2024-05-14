@@ -4,7 +4,7 @@ const userLoginSchema = object({
   email: string({ required_error: "email is required" }).email(),
 
   password: string({ required_error: "password is required" })
-    .min(6, "username must be at least 6 characters")
+    .min(6, "password must be at least 6 characters")
     .max(20, "user accept maximum 20 characters"),
 });
 
