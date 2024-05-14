@@ -1,3 +1,7 @@
-async function auth(_req, _res, _next) {}
+async function auth(req, _res, next) {
+  const authinfo = req.headers.authorization;
+  console.log(authinfo);
+  next();
+}
 
 export default auth;

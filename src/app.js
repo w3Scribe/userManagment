@@ -6,6 +6,7 @@ import logger from './middlewares/logger.js'
 import viewEngine from './config/viewEngine.js'
 import notFoundHandler from './middlewares/notFoundHandler.js'
 import notFoundRouter from './routes/notFoundRoute.js'
+import auth from "./middlewares/auth.js"
 
 /**
  * This is the main app module that creates the express app and sets up the middlewares and routes
@@ -31,7 +32,7 @@ viewEngine(app)
 app.use(logger)
 
 // routes
-app.use('/api/users', userRoutes)
+app.use('/api/users', auth, userRoutes)
 app.use(notFoundRouter)
 
 // global error handler Middleware
