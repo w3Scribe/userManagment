@@ -3,6 +3,6 @@ import reqValidator from "../middlewares/reqValidator.js";
 
 const authRouter = Router();
 
-authRouter.get("/login", reqValidator(userLoginSchema), (req, res, next) => {
+authRouter.get("/login", reqValidator(userLoginSchema), (_req, _res, _next) => {
   // Do something
 });
