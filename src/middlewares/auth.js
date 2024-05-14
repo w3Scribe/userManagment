@@ -1,6 +1,6 @@
-async function auth(req, _res, next) {
+async function auth(req, res, next) {
   const authinfo = req.headers.authorization;
-  console.log(authinfo);
+  if (!authinfo) return res.redirect("/auth/login");
   next();
 }
 

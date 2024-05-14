@@ -1,8 +1,10 @@
 import { Router } from "express";
-import reqValidator from "../middlewares/reqValidator.js";
+// import reqValidator from "../middlewares/reqValidator.js";
 
 const authRouter = Router();
 
-authRouter.get("/login", reqValidator(userLoginSchema), (_req, _res, _next) => {
-  // Do something
+authRouter.get("/login", (_req, res, _next) => {
+  res.send("auth route login");
 });
+
+export default authRouter;

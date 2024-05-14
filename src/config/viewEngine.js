@@ -11,7 +11,7 @@ import { fileURLToPath } from 'node:url'
 import { dirname, join } from 'node:path'
 import express from 'express'
 import expressEjsLayouts from 'express-ejs-layouts'
-import variables from './variables'
+import variables from './variables.js'
 
 const __filename = fileURLToPath(import.meta.url)
 const __dirname = dirname(__filename)
