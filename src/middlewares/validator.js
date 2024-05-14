@@ -4,7 +4,7 @@
  * @description This middleware is used to validate the request body against the schema provided
  */
 
-function reqValidator(schema) {
+function validator(schema) {
 	return async (req, res, next) => {
 		try {
 			await schema.parseAsync(req.body)
@@ -16,4 +16,4 @@ function reqValidator(schema) {
 	}
 }
 
-export default reqValidator
+export default validator
