@@ -9,13 +9,18 @@ async function loginController(req, res, next) {
     const user = await userModel.findOne({ email });
     const isPasswordValid = await verifyPassword(password, user.password);
 
+
+    if(!user || !isPasswordValid){
+      throw createHttpError(401, "Invalid credentials");
+    }
+
     if (user && isPasswordValid) {
       const token = generateToken({ email: user.email }, "1m");
       res.cookie("token", token, { httpOnly: true, maxAge: 1000 * 60 });
       return res.redirect("/api/users");
     }
 
-    throw createHttpError(401, "Email or password is incorrect");
+   
   } catch (error) {
     next(error);
   }
