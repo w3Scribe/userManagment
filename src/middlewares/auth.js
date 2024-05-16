@@ -6,10 +6,14 @@ async function auth(req, res, next) {
 
   if (!token) return res.redirect("/auth/signup");
 
-  const isVerifiedUser = jwt.verify(token, variables.JWT_SECRET_KEY);
-
-  if (isVerifiedUser) next();
-  else res.redirect("/auth/signup");
+  try {
+    jwt.verify(token, variables.JWT_SECRET_KEY);
+    next();
+  } catch (error) {
+    // if (error.name === "TokenExpiredError") return res.redirect("/auth/login");
+    // return res.redirect("/auth/signup");
+    return res.status(401).
+  }
 }
 
 export default auth;

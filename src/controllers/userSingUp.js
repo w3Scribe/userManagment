@@ -14,10 +14,10 @@ async function userSingUp(req, res, next) {
 
     const token = generateToken({ email: newUser.email }, "1m");
 
-    res.cookie("token", token, { httpOnly: true, maxAge: 1000 * 60 });
+    res.cookie("token", token, { httpOnly: true, maxAge: 1000 * 60 * 4 });
 
     console.log(chalk.green(newUser));
-    
+
     res.status(201).redirect("/api/users");
   } catch (error) {
     next(error);
