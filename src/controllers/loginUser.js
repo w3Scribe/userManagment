@@ -15,8 +15,6 @@ async function loginController(req, res, next) {
     const isPasswordValid = await verifyPassword(password, user.password);
 
 
-    console.log(user.password, password, isPasswordValid)
-
     if (!isPasswordValid) {
       throw createHttpError(401, "Password is incorrect");
     }
