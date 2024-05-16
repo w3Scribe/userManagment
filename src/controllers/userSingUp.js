@@ -17,6 +17,7 @@ async function userSingUp(req, res, next) {
     res.cookie("token", token, { httpOnly: true, maxAge: 1000 * 60 });
 
     console.log(chalk.green(newUser));
+    
     res.status(201).redirect("/api/users");
   } catch (error) {
     next(error);
