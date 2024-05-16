@@ -4,10 +4,7 @@ import mongoose from "mongoose";
 
 async function connect() {
   try {
-    const connection = await mongoose.connect(variables.MONGODB_URI, {
-      useNewUrlParser: true,
-      useUnifiedTopology: true,
-    });
+    const connection = await mongoose.connect(variables.MONGODB_URI);
     console.log(
       chalk.cyan(`Connected to the database ${connection.connection.name}`)
     );
