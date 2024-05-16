@@ -1,5 +1,6 @@
 import mongoose from "mongoose";
 import encryptPassword from "../utils/encryptPassword.js";
+import chalk from "chalk";
 
 const userSchema = mongoose.Schema({
   username: {
@@ -16,9 +17,13 @@ const userSchema = mongoose.Schema({
   },
 });
 
-userSchema.post("save", async function (_doc, next) {
+userSchema.pre("save", async function (next) {
   this.password = await encryptPassword(this.password);
   next();
+});
+
+userSchema.post("save", (doc) => {
+  console.log(chalk.green.bold("user succefully saved : "), chalk.green(doc));
 });
 
 const userModel = mongoose.models.user || mongoose.model("user", userSchema);

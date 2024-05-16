@@ -1,6 +1,6 @@
 import { compare } from "bcrypt";
 
-async function verifyPassword(hashPassword, password) {
+async function verifyPassword(password, hashPassword) {
   try {
     const isMatched = await compare(password, hashPassword);
     return isMatched;
