@@ -10,9 +10,10 @@ async function auth(req, res, next) {
     jwt.verify(token, variables.JWT_SECRET_KEY);
     next();
   } catch (error) {
-    // if (error.name === "TokenExpiredError") return res.redirect("/auth/login");
-    // return res.redirect("/auth/signup");
-    return res.status(401).
+    const hasExpried = error.name === "TokenExpiredError";
+    return res
+      .status(401)
+      .redirect(hasExpried ? "/auth/login" : "/auth/signup");
   }
 }
 
