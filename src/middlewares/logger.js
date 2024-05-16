@@ -6,44 +6,35 @@
  * @param {Express.Response} res
  * @param {Express.NextFunction} next
  */
-import chalk from 'chalk'
+import chalk from "chalk";
+
+const colors = {
+  GET: "green",
+  POST: "magenta",
+  PUT: "blue",
+  PATCH: "yellow",
+  DELETE: "red",
+};
 
 function logger(req, res, next) {
-	const startTime = Date.now()
+  const currentProcessTime = Date.now();
+  const { method, originalUrl } = req;
+  const colorName = colors[method];
 
-	const colors = {
-		GET: 'green',
-		POST: 'magenta',
-		PUT: 'blue',
-		PATCH: 'yellow',
-		DELETE: 'red'
-	}
+  const hasCorrectPath = !(
+    originalUrl.endsWith(".ico") || originalUrl.endsWith(".css")
+  );
 
-	const { method, originalUrl } = req
-	const color = colors[method]
+  next();
+  const processTime = Date.now() - currentProcessTime;
+  const status = res.statusCode;
 
-	const isTrue = !(
-		originalUrl.endsWith('styles.css') || originalUrl.endsWith('favicon.ico')
-	)
-
-	res.on('finish', () => {
-		const duration = Date.now() - startTime
-		const { statusCode } = res
-
-		if (isTrue && statusCode === 404) {
-			console.log(chalk.red(`${method} ${originalUrl}`))
-		}
-
-		if (isTrue && statusCode !== 404) {
-			console.log(
-				chalk[color](`${method}`) +
-					chalk.dim(` ${originalUrl}  ${duration}ms`)
-			)
-		}
-
-	})
-
-	return next()
+  if (hasCorrectPath) {
+    console.log(
+      chalk[colorName](method) +
+        chalk.dim(` ${originalUrl} ${chalk.bold(status)} ${processTime}ms`)
+    );
+  }
 }
 
-export default logger
+export default logger;

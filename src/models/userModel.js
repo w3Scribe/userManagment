@@ -1,4 +1,5 @@
 import mongoose from "mongoose";
+import encryptPassword from "../utils/encryptPassword.js";
 
 const userSchema = mongoose.Schema({
   username: {
@@ -13,6 +14,11 @@ const userSchema = mongoose.Schema({
     type: String,
     require: true,
   },
+});
+
+userSchema.post("save", async function (_doc, next) {
+  this.password = await encryptPassword(this.password);
+  next();
 });
 
 const userModel = mongoose.models.user || mongoose.model("user", userSchema);

@@ -1,17 +1,21 @@
-import encryptPassword from "../utils/encryptPassword.js";
 import userModel from "../models/userModel.js";
 import chalk from "chalk";
+import { generateToken } from "../utils/generateToken.js";
 
 async function userSingUp(req, res, next) {
   const { username, email, password } = req.body;
   try {
-    const encryptedPassword = await encryptPassword(password);
-    const newUser = await new userModel({
+    const newUser = new userModel({
       username,
       email,
-      password: encryptedPassword,
+      password,
     });
-    newUser.save();
+    await newUser.save();
+
+    const token = generateToken({ email: newUser.email }, "1m");
+
+    res.cookie("token", token, { httpOnly: true, maxAge: 1000 * 60 });
+
     console.log(chalk.green(newUser));
     res.status(201).redirect("/api/users");
   } catch (error) {
