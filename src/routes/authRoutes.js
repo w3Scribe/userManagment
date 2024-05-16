@@ -13,6 +13,9 @@ authRouter.get("/signup", (_req, res, _next) => {
 
 authRouter.post("/singup", validator(userSingUpSchema), userSingUp);
 
+authRouter.get("/login", (_req, res, _next) => {
+  res.render("login", { title: "Login" });
+})
 
 
 export default authRouter;
