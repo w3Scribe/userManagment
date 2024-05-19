@@ -2,6 +2,14 @@ import mongoose from "mongoose";
 import encryptPassword from "../utils/encryptPassword.js";
 import chalk from "chalk";
 
+/**
+ * User Schema
+ * @typedef {Object} UserSchema
+ * @property {string} username - The username of the user.
+ * @property {string} email - The email of the user.
+ * @property {string} password - The password of the user.
+ */
+
 const userSchema = mongoose.Schema({
   username: {
     type: String,
