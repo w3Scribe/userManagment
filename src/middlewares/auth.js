@@ -4,7 +4,7 @@ import variables from "../config/variables.js";
 async function auth(req, res, next) {
   const token = req.cookies.token;
 
-  if (!token) return res.redirect("/auth/signup");
+  if (!token) return res.status(200).redirect("/auth/signup");
 
   try {
     jwt.verify(token, variables.JWT_SECRET_KEY);
