@@ -3,6 +3,16 @@ import userModel from "../models/userModel.js";
 import verifyPassword from "../utils/verifyPassword.js";
 import { generateToken } from "../utils/generateToken.js";
 
+/**
+ * Handles the login functionality for a user.
+ *
+ * @param {Object} req - The request object.
+ * @param {Object} res - The response object.
+ * @param {Function} next - The next middleware function.
+ * @returns {Promise<void>} - A promise that resolves when the login process is complete.
+ * @throws {Error} - If there is an error during the login process.
+ */
+
 async function loginController(req, res, next) {
   const { email, password } = req.body;
   try {
