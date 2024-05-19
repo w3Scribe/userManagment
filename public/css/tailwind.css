@@ -2,6 +2,14 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Custom CSS */
+.grid_background {
+  --zinc_bg: theme(accentColor.neutral.900);
+  background-image:
+    linear-gradient(var(--zinc_bg) .1em, transparent .1em),
+    linear-gradient(90deg, var(--zinc_bg) .1em, transparent .1em);
+  background-size: 16px 16px;
+}
 
 .gradient_heading {
   background: linear-gradient(90deg, #f12711 0%, #f5af19 100%);
