@@ -1,10 +1,16 @@
 /**
- * This file contains the configuration for the application.
- * It exports an object with the following properties:
- * - PORT: The port on which the server will run.
- * - NODE_ENV: The environment in which the application is running.
- * - MONGODB_URI: The URI of the MongoDB database.
- * The values of these properties are read from environment variables.
+ * Configuration variables for the application.
+ * @typedef {Object} ConfigVariables
+ * @property {number} PORT - The port number for the server. Defaults to 5000 if not provided.
+ * @property {string} NODE_ENV - The environment mode for the application. Defaults to "development" if not provided.
+ * @property {string} MONGODB_URI - The MongoDB connection URI.
+ * @property {string} JWT_SECRET_KEY - The secret key used for JWT authentication.
+ * @property {string} JWT_EXPIRES_IN - The expiration time for JWT tokens.
+ */
+
+/**
+ * Application configuration variables.
+ * @type {ConfigVariables}
  */
 
 export default Object.freeze({
