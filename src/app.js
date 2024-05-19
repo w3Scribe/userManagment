@@ -8,6 +8,7 @@ import notFoundHandler from './middlewares/notFoundHandler.js'
 import notFoundRouter from './routes/notFoundRoute.js'
 import auth from "./middlewares/auth.js"
 import authRouter from "./routes/authRoutes.js"
+import HomeRouter from "./routes/homeRoute.js"
 
 /**
  * This is the main app module that creates the express app and sets up the middlewares and routes
@@ -33,7 +34,8 @@ viewEngine(app)
 app.use(logger)
 
 // routes
-app.use(notFoundRouter)
+app.use(notFoundRouter)  
+app.use("/", HomeRouter)
 app.use('/auth', authRouter)
 app.use('/api/users', auth, userRoutes)
 
